@@ -55,7 +55,7 @@ header {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
     padding: 16px;
     align-content: start;
@@ -87,9 +87,28 @@ header {
     border-top-right-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+#card-top>button {
+    background-color: #333;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    border: none;
+}
+
+#card-top>button:hover {
+    background-color: #4b4b4b;
+}
+
+.project-content {
+    padding-left: 32px;
 }
 
 .project-todos {

@@ -1,31 +1,33 @@
-let projects = [];
+import { addProjectToStorage, removeProjectFromStorage, getStoredProjects } from "./Storage";
 
-function createProject(id, name) {
+function createProject(id, name, description) {
     const project = {
         id,
         name,
+        description,
         todos: [],
 
         addTodo(todo) {
             this.todos.push(todo);
+            addProjectToStorage(this);
         },
 
         removeTodo(todoId) {
             this.todos = this.todos.filter(todo => todo.id !== todoId);
+            addProjectToStorage(this);
         }
     };
 
-    projects.push(project)
-
+    addProjectToStorage(project);
     return project;
 }
 
 function removeProject(projectId) {
-    projects = projects.filter(project => project.id !== projectId);
+    removeProjectFromStorage(projectId);
 }
 
 function getProjects() {
-    return projects;
+    return getStoredProjects();
 }
 
 export { createProject, removeProject, getProjects };

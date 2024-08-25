@@ -1,6 +1,7 @@
-import { getProjects } from "../Project";
+import { getProjects } from "../Project.js";
+import { removeProject } from "../Project.js";
 
-function createProjectCard(id, name, todos) {
+function createProjectCard(id, name, description, todos) {
     const projectCard = document.createElement('div');
     projectCard.classList.add('card');
     
@@ -8,13 +9,22 @@ function createProjectCard(id, name, todos) {
     const todosList = todos.map(todo => `<li>${todo}</li>`).join('');
 
     projectCard.innerHTML = `
-        <div id="card-top">${id}, ${name}</div>
-        <ul class="project-todos">
-            ${todosList}
-        </ul>
+        <div id="card-top">${name}
+            <button class="delete-this-project">x</button>
+        </div>
+        <div class="project-content">
+            <div class="project-description">${description}</div>
+            <ul class="project-todos">
+                ${todosList}
+            </ul>
+        </div>
     `;
     
-    console.log(projectCard);
+    projectCard.querySelector('.delete-this-project').addEventListener('click', (e) => {
+        const projectId = e.target.getAttribute('data-id');
+        document.dispatchEvent(new CustomEvent('projectRemoved', { detail: { id: id } }));
+    });
+    
     return projectCard;
 }
 
@@ -26,7 +36,8 @@ function renderProjectCards() {
         content.innerHTML = '';
 
         projects.forEach((project) => {
-            content.appendChild(createProjectCard(project.id, project.name, project.todos));
+            content.appendChild(createProjectCard(project.id, project.name, project.description, project.todos));
+            
         });
     } 
 }
