@@ -30,4 +30,9 @@ function getProjects() {
     return getStoredProjects();
 }
 
-export { createProject, removeProject, getProjects };
+function getProjectById(projectId) {
+    const projects = getStoredProjects();
+    return projects.find(project => project.id === projectId);
+}
+
+export { createProject, removeProject, getProjects, getProjectById };

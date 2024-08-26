@@ -1,6 +1,7 @@
 function createProjectsButton() {
     const projectsButton = document.createElement('div')
     projectsButton.classList.add('nav-item')
+    projectsButton.classList.add('projects-button')
     projectsButton.textContent = "Projects"
     return projectsButton
 }

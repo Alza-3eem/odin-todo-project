@@ -4,9 +4,11 @@ import { removeProject } from "../Project.js";
 function createProjectCard(id, name, description, todos) {
     const projectCard = document.createElement('div');
     projectCard.classList.add('card');
+
+    projectCard.setAttribute('data-id', id);
     
     // Convert todos array to a list of <li> elements
-    const todosList = todos.map(todo => `<li>${todo}</li>`).join('');
+    const todosList = todos.map(todo => `<li>${todo.text}</li>`).join('');
 
     projectCard.innerHTML = `
         <div id="card-top">${name}
