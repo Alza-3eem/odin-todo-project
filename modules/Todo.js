@@ -21,9 +21,6 @@ function removeTodoFromProject (projectId, todoId) {
 
     if (project) {
         project.todos = project.todos.filter(todo => todo.id !== todoId);
-        console.log("todo removed")
-        console.log(project.todos)
-        console.log(todoId)
         saveProjectsToLocalStorage(projects);
     }
 }
