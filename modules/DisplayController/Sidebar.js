@@ -1,28 +1,28 @@
 function createProjectsButton() {
-    const projectsButton = document.createElement('div')
-    projectsButton.classList.add('nav-item')
-    projectsButton.classList.add('projects-button')
-    projectsButton.textContent = "Projects"
-    return projectsButton
+  const projectsButton = document.createElement("div");
+  projectsButton.classList.add("nav-item");
+  projectsButton.classList.add("projects-button");
+  projectsButton.textContent = "Projects";
+  return projectsButton;
 }
 
 function createAddProjectButton() {
-    const addProjectButton = document.createElement('div')
-    addProjectButton.classList.add('nav-item')
-    addProjectButton.classList.add('create-project-btn')
-    addProjectButton.textContent = "Create a Project"
-    return addProjectButton
+  const addProjectButton = document.createElement("div");
+  addProjectButton.classList.add("nav-item");
+  addProjectButton.classList.add("create-project-btn");
+  addProjectButton.textContent = "Create a Project";
+  return addProjectButton;
 }
 
 function renderSidebar() {
-    const sidebarContainer = document.getElementById('sidebar-container')
+  const sidebarContainer = document.getElementById("sidebar-container");
 
-    if (sidebarContainer) {
-        sidebarContainer.innerHTML = ``
+  if (sidebarContainer) {
+    sidebarContainer.innerHTML = ``;
 
-        sidebarContainer.appendChild(createProjectsButton())
-        sidebarContainer.appendChild(createAddProjectButton())
-    }
+    sidebarContainer.appendChild(createProjectsButton());
+    sidebarContainer.appendChild(createAddProjectButton());
+  }
 }
 
 export default renderSidebar;

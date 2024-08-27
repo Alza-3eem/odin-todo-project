@@ -6,7 +6,7 @@ function addTodoToProject(projectId, todoText) {
 
     if (project) {
         const newTodo = {
-            id: `${projectId}, ${Date.now()}`,
+            id: `${Date.now()}`,
             text: todoText,
             completed: false,
         };
@@ -21,8 +21,10 @@ function removeTodoFromProject (projectId, todoId) {
 
     if (project) {
         project.todos = project.todos.filter(todo => todo.id !== todoId);
-
-        saveProjectsToLocalStorage
+        console.log("todo removed")
+        console.log(project.todos)
+        console.log(todoId)
+        saveProjectsToLocalStorage(projects);
     }
 }
 
@@ -31,7 +33,7 @@ function toggleTodoCompletion(projectId, todoId) {
     const project = projects.find(proj => proj.id === projectId);
 
     if (project) {
-        const todo = project.todos.find(todo = todo.id === todoId);
+        const todo = project.todos.find(todo => todo.id === todoId);
         if (todo) {
             todo.completed = !todo.completed;
 
